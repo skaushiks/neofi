@@ -238,7 +238,7 @@ function App() {
     return () => {
       ws.close();
     };
-  }, [ticker]);
+  }, [ticker, usdinr]);
 
   const handleAmountChange = (e) => {
     if (e.target.value) {
