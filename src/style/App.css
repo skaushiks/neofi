@@ -1,0 +1,364 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #0b0819;
+}
+
+.navbar img,
+.navbar ul li,
+.navbar button {
+  cursor: pointer;
+}
+
+.navbar img {
+  margin-left: 20px;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 50px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.navbar ul li {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: capitalize;
+  color: #5a5a5a;
+}
+
+.navbar ul li:first-child {
+  position: relative;
+  font-weight: 600;
+  color: #627eea;
+}
+
+.navbar ul li:first-child:after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 0px;
+  width: 76px;
+  top: 41px;
+  bottom: 0;
+  left: calc(50% - 35px);
+  border: 2px solid #627eea;
+}
+
+.navbar ul li:hover {
+  color: #627eea;
+}
+
+.navbar button {
+  height: 40px;
+  width: 140px;
+  margin-right: 40px;
+  color: #ffffff;
+  background: linear-gradient(94.37deg, #3387d5 -5.94%, #7a06c9 115.34%);
+  border-radius: 30px;
+  font-family: "Barlow", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-shadow: 0.364154px 0.364154px 0.364154px rgba(0, 0, 0, 0.25);
+  outline: none;
+  border: none;
+}
+
+#app {
+  display: grid;
+  place-content: center;
+}
+
+/* .rectangle {
+  display: block;
+  width: 300px;
+  position: relative;
+  top: 20%;
+  height: 500px;
+  background: #0b0819;
+  border-radius: 18px;
+  background: linear-gradient(0deg, #0b0819, #0b0819),
+    linear-gradient(180deg, #46425e 0%, rgba(0, 0, 0, 0) 100%);
+  border: 1px solid;
+  border-image-source: linear-gradient(
+    180deg,
+    #46425e 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.rectangle > div {
+    border: 1px solid #040406;
+    background-color: #040406;
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    border-radius: 40px;
+    left: 50%;
+    margin-left: -25px;
+    top: -30px;
+}
+
+.ellipse {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 40px;
+  border: 6px solid #1C1731;
+  left: 50%;
+  margin-left: -25px;
+  top: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+} */
+
+.union {
+  position: relative;
+  top: 20%;
+  /* height: 550px; */
+  width: 470px;
+  background: linear-gradient(0deg, #0b0819, #0b0819) padding-box,
+    linear-gradient(180deg, #46425e 0%, rgba(0, 0, 0, 0) 100%) border-box;
+  border-radius: 18px;
+  border: 1px solid transparent;
+}
+
+.rectangle {
+  background-color: #040406;
+  position: absolute;
+  height: 70px;
+  width: 70px;
+  border-radius: 40px;
+  left: 50%;
+  margin-left: -25px;
+  top: -30px;
+}
+
+.ellipse {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 40px;
+  border: 6px solid #1c1731;
+  left: 50%;
+  margin-left: -25px;
+  top: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.content_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+
+.content_container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.content_container > div p:first-child {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #c5c5c5;
+}
+
+.content_container > div p:nth-child(2) {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #627eea;
+}
+
+.input-box {
+  flex-direction: column;
+}
+
+label {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #dcdcec;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 60px;
+  padding: 0 18px;
+  background: #1c1731;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  line-height: 31px;
+  color: #6f6f7e;
+  outline: none;
+  border: none;
+}
+
+.tokenInput,
+.amountInput {
+  position: relative;
+}
+
+#token {
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  padding-left: 60px;
+}
+
+.tokenInput > img {
+  position: absolute;
+  top: 30%;
+  left: 6%;
+  height: 25px;
+  width: 25px;
+  border-radius: 12px;
+}
+
+.arrowDropDownIcon {
+  position: absolute;
+  top: 30%;
+  right: 6%;
+  color: #6e56f8;
+}
+
+#amount {
+  background: transparent;
+  border: 1px solid rgba(110, 86, 248, 0.25);
+  border-radius: 5px;
+}
+
+.amountInput::after {
+  position: absolute;
+  content: "INR";
+  right: 6%;
+  top: 54%;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.box {
+  border-radius: 18px;
+  border: 1px solid transparent;
+  background: linear-gradient(0deg, #181627, #181627) padding-box,
+    linear-gradient(180deg, #3b79d4 -12.45%, rgba(0, 0, 0, 0) 38.78%) border-box;
+}
+
+.box:focus {
+  outline: none !important;
+}
+
+.closeRounded {
+  color: #ffffff;
+  background: rgba(110, 86, 248, 0.15);
+  border-radius: 5px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.searchField > div {
+  height: 40px;
+  color: #d2d2d2 !important;
+  border-radius: 30px;
+  border: 1px solid rgba(110, 86, 248, 0.25);
+}
+
+.searchField > div input {
+  color: #d2d2d2 !important;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.tokensContainer {
+  overflow-y: scroll;
+  height: 80%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tokensContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.searchToken {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 44px;
+  color: #ffffff;
+  border-radius: 2px;
+  padding: 10px 16px;
+  margin: 14px 0;
+  cursor: pointer;
+}
+
+.searchTokenBackground {
+  background: #1b192d;
+}
+
+.searchToken > div {
+  display: flex;
+  align-items: center;
+}
+
+.searchToken > div p {
+  margin-left: 14px;
+}
+
+.searchToken > div img {
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+}
+
+.checkRoundedIcon {
+  color: #58adab;
+}
+
+.content_container button {
+  height: 50px;
+  width: 90%;
+  margin: 20px 0 40px 0;
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  line-height: 27px;
+  color: #ffffff;
+  background: linear-gradient(94.37deg, #3387d5 -5.94%, #7a06c9 115.34%);
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
