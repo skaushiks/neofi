@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "../style/App.css";
 import Navbar from "./Navbar.js";
 import btc from "../images/btc.png";
@@ -38,9 +38,9 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
+  height: 450,
   width: 410,
-  p: 4,
-  height: 410,
+  p: 4
 };
 
 const baseSocketURL = "wss://stream.binance.com:9443/ws/";
@@ -197,10 +197,14 @@ function App() {
   const [tickerPrice, setTickerPrice] = useState("");
   const [amount, setAmount] = useState("");
   const [tokenEstimate, setTokenEstimate] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
 
   const handleClose = () => {
     setTokenEstimate("");
     setAmount("");
+    setSearchTerm("");
+    setSearchResult([]);
     setOpen(false);
   };
 
@@ -260,6 +264,31 @@ function App() {
     handleClose();
   };
 
+  const handleSearch = useCallback(() => {
+    let timer;
+    let filteredResult = [];
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      filteredResult = coins.filter(
+        (value) =>
+          value.name &&
+          value.name
+            .toLowerCase()
+            .includes(searchTerm.toLowerCase())
+      );
+      setSearchResult(filteredResult);
+    }, 600);
+  }, [searchTerm, coins]);
+
+  useEffect(() => {
+    if (searchTerm === "") {
+      setSearchResult([]);
+    } else {
+      handleSearch();
+    }
+  }, [searchTerm, handleSearch]);
+
   return (
     <>
       <Navbar />
@@ -308,7 +337,8 @@ function App() {
               sx={{
                 marginTop: 5,
               }}
-              // onChange={handleChange}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              value={searchTerm}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -319,21 +349,36 @@ function App() {
             />
 
             <div className="tokensContainer">
-            {
-              coins.map((coin) => (
-                <div
-                  key={coin.ticker}
-                  className={`searchToken ${coin.selected ? "searchTokenBackground" : ""}`}
-                  onClick={() => handleToken(coin)}
-                >
-                  <div>
-                    <img src={coin.logo} alt={coin.name} />
-                    <p>{coin.name}</p>
-                  </div>
-                  {coin.selected ? <CheckRoundedIcon className="checkRoundedIcon" /> : null}
-                </div>
-              ))
-            }
+              {
+                searchTerm.length ?
+                  searchResult.map((coin) => (
+                    <div
+                      key={coin.ticker}
+                      className={`searchToken ${coin.selected ? "searchTokenBackground" : ""}`}
+                      onClick={() => handleToken(coin)}
+                    >
+                      <div>
+                        <img src={coin.logo} alt={coin.name} />
+                        <p>{coin.name}</p>
+                      </div>
+                      {coin.selected ? <CheckRoundedIcon className="checkRoundedIcon" /> : null}
+                    </div>
+                  ))
+                :
+                  coins.map((coin) => (
+                    <div
+                      key={coin.ticker}
+                      className={`searchToken ${coin.selected ? "searchTokenBackground" : ""}`}
+                      onClick={() => handleToken(coin)}
+                    >
+                      <div>
+                        <img src={coin.logo} alt={coin.name} />
+                        <p>{coin.name}</p>
+                      </div>
+                      {coin.selected ? <CheckRoundedIcon className="checkRoundedIcon" /> : null}
+                    </div>
+                  ))
+              }
             </div>
           </Box>
         </Modal>

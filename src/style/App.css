@@ -77,56 +77,13 @@
 #app {
   display: grid;
   place-content: center;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
 }
-
-/* .rectangle {
-  display: block;
-  width: 300px;
-  position: relative;
-  top: 20%;
-  height: 500px;
-  background: #0b0819;
-  border-radius: 18px;
-  background: linear-gradient(0deg, #0b0819, #0b0819),
-    linear-gradient(180deg, #46425e 0%, rgba(0, 0, 0, 0) 100%);
-  border: 1px solid;
-  border-image-source: linear-gradient(
-    180deg,
-    #46425e 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
-}
-
-.rectangle > div {
-    border: 1px solid #040406;
-    background-color: #040406;
-    position: absolute;
-    height: 70px;
-    width: 70px;
-    border-radius: 40px;
-    left: 50%;
-    margin-left: -25px;
-    top: -30px;
-}
-
-.ellipse {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  border-radius: 40px;
-  border: 6px solid #1C1731;
-  left: 50%;
-  margin-left: -25px;
-  top: 10px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
-} */
 
 .union {
   position: relative;
-  top: 20%;
-  /* height: 550px; */
+  top: 15%;
   width: 470px;
   background: linear-gradient(0deg, #0b0819, #0b0819) padding-box,
     linear-gradient(180deg, #46425e 0%, rgba(0, 0, 0, 0) 100%) border-box;
@@ -361,4 +318,52 @@ label {
   border-radius: 30px;
   border: none;
   cursor: pointer;
+}
+
+.menuIcon {
+  color: #627eea;
+  height: 44px !important;
+  width: 44px !important;
+  cursor: pointer;
+}
+
+.navbar .active {
+  display: flex;
+  flex-direction: column;
+  background: #0b0819;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 20px 0;
+  border-top: 1px solid rgba(110, 86, 248, 0.25);
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar button {
+    margin-top: 20px;
+    margin-right: 0;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .union {
+    width: 100%;
+  }
+
+  .box {
+    width: 80% !important;
+  }
+
+  .content_container > div:first-child {
+    flex-direction: column;
+  }
 }
